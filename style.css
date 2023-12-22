@@ -1,0 +1,145 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-shadow: border-box;
+}
+
+ul {
+	list-style: none;
+
+}
+
+a {
+	text-decoration: none;
+	display: inline-block;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.6;
+}
+
+.grid{
+	display: grid;
+}
+
+.grid--1x2 {
+	grid-template-columns: repeat(2, minmax(auto, 1fr));
+}
+
+.grid--1x3 {
+	grid-template-columns: repeat(3, minmax(auto, 1fr));
+}
+
+.btn {
+	display: inline-block;
+	border: 0;
+	background: 0;
+	padding: 1em 1.5em;
+	font-size: 1.125rem;
+	font-weight: 700;
+	transition: 250ms;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2.5rem;
+}
+
+.flow-content--s > * + *  {
+	margin-top: .5rem !important;
+}
+.flow-content--m > * + *  {
+	margin-top: 1rem !important;
+}
+.flow-content--xm > * + *  {
+	margin-top: 1.5rem !important;
+}
+.flow-content--l > * + *  {
+	margin-top: 3rem !important;
+}
+.flow-content--xl > * + *  {
+	margin-top: 3.5rem !important;
+}
+
+.nav{
+    background: #000;
+    padding: 1rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .link{
+        transition: color 250ms;
+        &:hover{
+            cursor: pointer;
+            color: skyblue;
+        }
+    }
+
+    a {
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .logo{
+        font-size: 1.5rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    ul{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.navToggle{
+    position: absolute;
+    right: 5%;
+    top: 1.5rem; 
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 1.3rem;
+        display: none;
+    
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    @media screen and (width <=550px) {
+        .navToggle {
+            display: block;
+            z-index: 1000;
+        }
+    
+        nav {
+            justify-content: center;
+            align-items: center;
+    
+            .desktopNav {
+                position: fixed;
+                inset: 0 0 0 0;
+                min-height: 100vh;
+                background-color: #000;
+                z-index: 999;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%);
+                transition: 250ms transform;
+            }
+
+            .clicked {
+                transform: translate(0);
+            }
+
+            .link{
+                font-size: 1.5rem;
+            }
+        }
+    }
